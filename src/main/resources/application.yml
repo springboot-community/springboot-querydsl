@@ -1,0 +1,36 @@
+
+server:
+  port: 80
+
+logging:
+  level:
+    root: DEBUG
+    # 在日志中输SQL参数的绑定信息
+    'org.hibernate.type.descriptor.sql.BasicBinder': TRACE
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/querydsl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&allowMultiQueries=true
+    username: root
+    password: root
+
+  data:
+    jpa:
+      repositories:
+        enabled: true
+        bootstrap-mode: default
+  jpa:
+    # 指定关系型数据库的方言
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    # 不在视图层维护连接 
+    open-in-view: false
+    # 日志中输出SQL
+    show-sql: false
+    properties:
+    # 格式化日志中输出的SQL
+      hibernate.format_sql: false
+    hibernate:
+      # SQL建表策略： UPDATE
+      ddl-auto: update
