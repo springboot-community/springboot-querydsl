@@ -27,10 +27,10 @@ spring:
     # 不在视图层维护连接 
     open-in-view: false
     # 日志中输出SQL
-    show-sql: false
+    show-sql: true
     properties:
     # 格式化日志中输出的SQL
-      hibernate.format_sql: false
+      hibernate.format_sql: true
     hibernate:
       # SQL建表策略： UPDATE
       ddl-auto: update
